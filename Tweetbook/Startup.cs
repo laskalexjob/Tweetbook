@@ -34,12 +34,6 @@ namespace Tweetbook
                 app.UseHsts();
             }
 
-            app.Use(async (context, next) =>
-            {
-                context.Response.Headers.Add("CustomHeader", "CustomValue");
-                await next();
-            });
-
             var swaggerOptions = new Options.SwaggerOptions();
             Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
 
